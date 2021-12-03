@@ -23,19 +23,19 @@ pipeline {
         echo "deploying...."
       }
     }
-    
-    post {
-      always {
-        echo "completed!"
-      }
+  }
+  
+  post {
+    always {
+      echo "completed!"
+    }
       
-      success {
-        echo "success!"
-      }
+    success {
+      echo "success!"
+    }
       
-      failure {
-        echo "failed!"
-      }
+    failure {
+      echo "failed!"
     }
   }
 }
