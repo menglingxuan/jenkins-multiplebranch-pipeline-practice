@@ -1,21 +1,27 @@
 pipeline {
   agent any
   
+  environment {
+    PROJECT_NAME = "jenkins-CI-best-practice"
+  }
+  
   stages {
-    environment {
-      PROJECT_NAME = "jenkins-CI-best-practice"
-    }
-    
     stage('Build') {
-      echo "building...."
+      steps {
+        echo "building...."
+      }
     }
     
     stage('Test') {
-      echo "testing...."
+      steps {
+        echo "testing...."
+      }
     }
     
     stage('Deploy') {
-      echo "deploying...."
+      steps {
+        echo "deploying...."
+      }
     }
     
     post {
