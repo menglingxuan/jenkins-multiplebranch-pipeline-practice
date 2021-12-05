@@ -1,6 +1,10 @@
 pipeline {
   agent any
   
+  options {
+    skipDefaultCheckout()
+  }
+  
   environment {
     PROJECT_NAME = "jenkins-CI-best-practice"
   }
