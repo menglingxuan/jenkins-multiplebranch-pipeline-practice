@@ -15,7 +15,7 @@ pipeline {
     file description: 'Configuration file', name: 'config_file'
     password defaultValue: '', description: 'User password', name: 'user_pass'
     run description: 'Dependent build of specified job', filter: 'ALL', name: 'dependsOn_build_no', projectName: "${JOB_NAME}"
-    credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: 'Required credential to perform actions', description: '', name: 'user_credential', required: true
+    credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: '', description: 'Required credential to perform actions', name: 'user_credential', required: true
     booleanParam defaultValue: true, description: 'Detect incedent toggle', name: 'detect_incident'
     booleanParam defaultValue: false, description: 'Debug mode toggle', name: 'debug_mode'
     text defaultValue: '', description: 'Additional gradle opts', name: 'extra_gradle_opts'
