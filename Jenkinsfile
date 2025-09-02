@@ -14,7 +14,7 @@ pipeline {
     choice choices: ['DEV', 'SIT', 'UAT', 'PROD'], name: 'test_env'
     file description: 'Configuration file', name: 'config_file'
     password defaultValue: '', description: 'User password', name: 'user_pass'
-    run description: 'Dependent build of specified job', filter: 'ALL', name: 'dependsOn_build_no', projectName: "${JOB_NAME}"
+    run description: 'Dependent build of specified job', filter: 'ALL', name: 'dependsOn_build', projectName: "${JOB_NAME}"
     credentials credentialType: 'com.cloudbees.plugins.credentials.impl.UsernamePasswordCredentialsImpl', defaultValue: '', description: 'Required credential to perform actions', name: 'user_credential', required: true
     booleanParam defaultValue: true, description: 'Detect incedent toggle', name: 'detect_incident'
     booleanParam defaultValue: false, description: 'Debug mode toggle', name: 'debug_mode'
@@ -35,12 +35,12 @@ pipeline {
          echo "params.test_env=${params.test_env}"
          echo "params.user_pass=${params.user_pass}"
         
-         echo "params.dependsOn_build_no=${params.dependsOn_build_no}"
-         echo "PARAMETER_NAME=${PARAMETER_NAME}"
-         echo "PARAMETER_NAME_JOBNAME=${PARAMETER_NAME_JOBNAME}"
-         echo "PARAMETER_NAME_NUMBER=${PARAMETER_NAME_NUMBER}"
-         echo "PARAMETER_NAME_NAME=${PARAMETER_NAME_NAME}"
-         echo "PARAMETER_NAME_RESULT=${PARAMETER_NAME_RESULT}"
+         echo "params.dependsOn_build=${params.dependsOn_build}"
+         echo "dependsOn_build=${dependsOn_build}"
+         echo "dependsOn_build_JOBNAME=${dependsOn_build_JOBNAME}"
+         echo "dependsOn_build_NUMBER=${dependsOn_build_NUMBER}"
+         echo "dependsOn_build_NAME=${dependsOn_build_NAME}"
+         echo "dependsOn_build_RESULT=${dependsOn_build_RESULT}"
         
          echo "params.user_credential=${params.user_credential}"
          echo "params.detect_incident=${params.detect_incident}"
