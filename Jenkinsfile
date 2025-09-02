@@ -1,16 +1,18 @@
+// Demostrate how to declare build parameters in Jenkinsfile
+
 pipeline {
   agent any
   
   options {
     skipDefaultCheckout()
   }
-  
+
   environment {
-    PROJECT_NAME = "jenkins-CI-best-practice"
+    PROJ_NAME = 'TEST_BUILD_PARAMETERS'
   }
 
   parameters {
-    string defaultValue: 'test-build-parameters', description: 'Branch to be checked out', name: 'branch_name', trim: true
+    string defaultValue: '', description: 'Branch to be checked out', name: 'branch_name', trim: true
     choice choices: ['DEV', 'SIT', 'UAT', 'PROD'], name: 'test_env'
     file description: 'Configuration file', name: 'config_file'
     password defaultValue: '', description: 'User password', name: 'user_pass'
@@ -29,6 +31,12 @@ pipeline {
     }
     
     stage('Test') {
+      when {
+        expression {
+          return params.branch_name.length() > 0
+        }
+      }
+      
       steps {
         echo "testing...."
         echo "params.branch_name=${params.branch_name}"
