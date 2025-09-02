@@ -34,7 +34,14 @@ pipeline {
         echo "params.branch_name=${params.branch_name}"
          echo "params.test_env=${params.test_env}"
          echo "params.user_pass=${params.user_pass}"
+        
          echo "params.dependsOn_build_no=${params.dependsOn_build_no}"
+         echo "PARAMETER_NAME=${PARAMETER_NAME}"
+         echo "PARAMETER_NAME_JOBNAME=${PARAMETER_NAME_JOBNAME}"
+         echo "PARAMETER_NAME_NUMBER=${PARAMETER_NAME_NUMBER}"
+         echo "PARAMETER_NAME_NAME=${PARAMETER_NAME_NAME}"
+         echo "PARAMETER_NAME_RESULT=${PARAMETER_NAME_RESULT}"
+        
          echo "params.user_credential=${params.user_credential}"
          echo "params.detect_incident=${params.detect_incident}"
          echo "params.debug_mode=${params.debug_mode}"
